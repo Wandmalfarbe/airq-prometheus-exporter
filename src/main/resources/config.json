@@ -1,0 +1,519 @@
+﻿{
+  "sensors": [
+    {
+      "id": "health",
+      "nameDe": "Gesundheitsindex",
+      "nameEn": "Health",
+      "unit": "%",
+      "type": "double",
+      "hasErrorMargin": false
+    },
+    {
+      "id": "no2",
+      "nameDe": "Stickstoffdioxid",
+      "nameEn": "Nitrogen Dioxide",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "performance",
+      "nameDe": "Leistungsindex",
+      "nameEn": "Performance",
+      "unit": "%",
+      "type": "double",
+      "hasErrorMargin": false
+    },
+    {
+      "id": "o3",
+      "nameDe": "Ozon",
+      "nameEn": "Ozone",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "oxygen",
+      "nameDe": "Sauerstoff",
+      "nameEn": "Oxygen",
+      "unit": "%",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "so2",
+      "nameDe": "Schwefeldioxid",
+      "nameEn": "Sulfur Dioxide",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "co2",
+      "nameDe": "Kohlendioxid",
+      "nameEn": "Carbon Dioxide",
+      "unit": "ppm",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "sound",
+      "nameDe": "Lärm",
+      "nameEn": "Noise",
+      "unit": "dB(A)",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "sound_max",
+      "nameDe": "Lärm (Maximum)",
+      "nameEn": "Noise (Maximum)",
+      "unit": "dB(A)",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "tvoc",
+      "nameDe": "VOC",
+      "nameEn": "VOC",
+      "unit": "ppb",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "humidity",
+      "nameDe": "Relative Luftfeuchtigkeit",
+      "nameEn": "Relative Humidity",
+      "unit": "%",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "co",
+      "nameDe": "Kohlenmonoxid",
+      "nameEn": "Carbon Monoxide",
+      "unit": "mg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "humidity_abs",
+      "nameDe": "Absolute Luftfeuchtigkeit",
+      "nameEn": "Absolute Humidity",
+      "unit": "g/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "pm1",
+      "nameDe": "PM1 Feinstaub",
+      "nameEn": "PM1 Particulate Matter",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "temperature",
+      "nameDe": "Temperatur",
+      "nameEn": "Temperature",
+      "unit": "°C",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "fahrenheit",
+      "nameDe": "Temperatur",
+      "nameEn": "Temperature",
+      "unit": "°F",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "pm2_5",
+      "nameDe": "PM2.5 Feinstaub",
+      "nameEn": "PM2.5 Particulate Matter",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "pressure",
+      "nameDe": "Luftdruck",
+      "nameEn": "Air Pressure",
+      "unit": "hPa",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "pressure_rel",
+      "nameDe": "Relativer Luftdruck",
+      "nameEn": "Relative Air Pressure",
+      "unit": "hPa",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "pm10",
+      "nameDe": "PM10 Feinstaub",
+      "nameEn": "PM10 Particulate Matter",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "dewpt",
+      "nameDe": "Taupunkt",
+      "nameEn": "Dew Point",
+      "unit": "°C",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "h2s",
+      "nameDe": "Schwefelwasserstoff",
+      "nameEn": "Hydrogen Sulfide",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "n2o",
+      "nameDe": "Lachgas",
+      "nameEn": "Nitrous Oxide",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "pm2_5_SPS30",
+      "nameDe": "PM2.5 Feinstaub (AUX)",
+      "nameEn": "PM2.5 Particulate Matter (AUX)",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "pm10_SPS30",
+      "nameDe": "PM10 Feinstaub (AUX)",
+      "nameEn": "PM10 Particulate Matter (AUX)",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "pm4_SPS30",
+      "nameDe": "PM4 Feinstaub (AUX)",
+      "nameEn": "PM4 Particulate Matter (AUX)",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "pm1_SPS30",
+      "nameDe": "PM1 Feinstaub (AUX)",
+      "nameEn": "PM1 Particulate Matter (AUX)",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "TypPS_SPS30",
+      "nameDe": "Typ. Partikelgröße (AUX)",
+      "nameEn": "Typical Particle Size (AUX)",
+      "unit": "µm",
+      "type": "double",
+      "hasErrorMargin": false
+    },
+    {
+      "id": "TypPS",
+      "nameDe": "Typische Partikelgröße",
+      "nameEn": "Typical Particulate Size",
+      "unit": "µm",
+      "type": "double",
+      "hasErrorMargin": false
+    },
+    {
+      "id": "ch4_MIPEX",
+      "nameDe": "Methan",
+      "nameEn": "Methane",
+      "unit": "%",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "c3h8_MIPEX",
+      "nameDe": "Propan",
+      "nameEn": "Propane",
+      "unit": "%",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "tvoc_ionsc",
+      "nameDe": "VOC (ION Science)",
+      "nameEn": "VOC (ION Science)",
+      "unit": "ppb",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "radon",
+      "nameDe": "Radon",
+      "nameEn": "Radon",
+      "unit": "Bq/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "no2_insplorion",
+      "nameDe": "NO2 (Insplorion)",
+      "nameEn": "NO2 (Insplorion)",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "ethanol",
+      "nameDe": "Alkohol",
+      "nameEn": "Alcohol",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "iaq_spec",
+      "nameDe": "IAQ (SPEC)",
+      "nameEn": "IAQ (SPEC)",
+      "unit": "ppb",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "resp_irr_spec",
+      "nameDe": "Atemwegsreizende Gase",
+      "nameEn": "Respiratory Irritant Gases",
+      "unit": "ppb",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "nh3_MR100",
+      "nameDe": "Ammoniak",
+      "nameEn": "Ammonia",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "acid_M100",
+      "nameDe": "Organische Säure",
+      "nameEn": "Organic Acid",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "h2_M1000",
+      "nameDe": "Wasserstoff",
+      "nameEn": "hydrogen",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "no_M250",
+      "nameDe": "Stickstoffmonoxid",
+      "nameEn": "Nitrogen Monoxide",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "cl2_M20",
+      "nameDe": "Chlor",
+      "nameEn": "Chlorine",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "br2",
+      "nameDe": "Brom",
+      "nameEn": "Bromine",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "f2",
+      "nameDe": "Fluor",
+      "nameEn": "Fluorine",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "hf",
+      "nameDe": "Fluorwasserstoff",
+      "nameEn": "Hydrogen fluoride",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "hcn",
+      "nameDe": "Cyanwasserstoff",
+      "nameEn": "Hydrogen cyanide",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "hcl",
+      "nameDe": "Chlorwasserstoff",
+      "nameEn": "Hydrogen chloride",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "ch4s",
+      "nameDe": "Methanthiol",
+      "nameEn": "Methanethiol",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "clo2",
+      "nameDe": "Chlordioxid",
+      "nameEn": "Chlorine dioxide",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "cs2",
+      "nameDe": "Kohlenstoffdisulfid",
+      "nameEn": "Carbon disulfide",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "ph3",
+      "nameDe": "Phosphan",
+      "nameEn": "Phosphane",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "sih4",
+      "nameDe": "Silan",
+      "nameEn": "Silane",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "c2h4",
+      "nameDe": "Ethen",
+      "nameEn": "Ethene",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "c2h4o",
+      "nameDe": "Oxiran",
+      "nameEn": "Oxirane",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "ash3",
+      "nameDe": "Arsan",
+      "nameEn": "Arsane",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "h2o2",
+      "nameDe": "Wasserstoffperoxid",
+      "nameEn": "Hydrogen peroxide",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "refrigerant",
+      "nameDe": "Kältemittel",
+      "nameEn": "Refrigerant",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "ch2o_M10",
+      "nameDe": "Formaldehyd",
+      "nameEn": "Formaldehyde",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "dCO2dt",
+      "nameDe": "Änderung der CO₂ Konzentration",
+      "nameEn": "Change of CO₂ concentration",
+      "type": "int",
+      "hasErrorMargin": false
+    },
+    {
+      "id": "dHdt",
+      "nameDe": "Änderung der Luftfeuchtigkeit",
+      "nameEn": "Change of Humidity",
+      "type": "int",
+      "hasErrorMargin": false
+    },
+    {
+      "id": "measuretime",
+      "nameDe": "Dauer der Messung",
+      "nameEn": "Duration of measurement",
+      "unit": "ms",
+      "type": "int",
+      "hasErrorMargin": false
+    },
+    {
+      "id": "timestamp",
+      "nameDe": "Timestamp",
+      "nameEn": "Timestamp",
+      "type": "long",
+      "hasErrorMargin": false
+    },
+    {
+      "id": "uptime",
+      "nameDe": "Uptime",
+      "nameEn": "Uptime",
+      "unit": "s",
+      "type": "long",
+      "hasErrorMargin": false
+    },
+    {
+      "id": "Status",
+      "nameDe": "Status",
+      "nameEn": "Status",
+      "type": "string",
+      "hasErrorMargin": false
+    },
+    {
+      "id": "DeviceID",
+      "nameDe": "Geräte-ID",
+      "nameEn": "Device ID",
+      "type": "string",
+      "hasErrorMargin": false
+    }
+  ]
+}

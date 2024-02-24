@@ -1,0 +1,8 @@
+version: '2'
+services:
+  airq-prometheus-exporter:
+    container_name: airq-prometheus-exporter
+    image: airq-prometheus-exporter
+    command: '-h "192.168.178.46" -p "password"'
+    ports:
+      - '8080:8080'

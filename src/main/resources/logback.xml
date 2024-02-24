@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <import class="ch.qos.logback.core.ConsoleAppender"/>
+    <import class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"/>
+
+    <!-- custom coloring conversion -->
+    <conversionRule conversionWord="highlight_custom" converterClass="de.pascalwagler.airq.logging.HighlightingCompositeConverterCustom" />
+
+    <appender name="Console" class="ConsoleAppender">
+        <encoder class="PatternLayoutEncoder">
+            <pattern>%cyan(%d{ISO8601}) %highlight_custom( %-6level) [%blue(%t)] %yellow(%c{20}): %msg%n%red(%throwable)</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="Console"/>
+    </root>
+</configuration>

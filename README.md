@@ -2,7 +2,7 @@
 
 This is a Prometheus exporter for the air-Q, an air quality measuring device. The air-Q data is exported as Prometheus text metrics (or JSON) and can be visualized e.g. in Grafana.
 
-![Grafana Dashboard](img/grafana-dashboard.png)
+![Grafana Dashboard](grafana-dashboard/airq-prometheus-exporter-1.png)
 
 The following sensors or metrics are supported:
 
@@ -263,6 +263,8 @@ docker load --input "airq-prometheus-exporter.tar"
 ```
 
 ## Grafana
+
+![Grafana Dashboard](grafana-dashboard/airq-prometheus-exporter-2.png)
 
 The Grafana dashboard is available at https://grafana.com/grafana/dashboards/20561-air-q-prometheus-exporter/.
 To install it in your Grafana instance, follow the instructions below:

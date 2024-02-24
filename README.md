@@ -4,6 +4,76 @@ This is a Prometheus exporter for the air-Q, an air quality measuring device. Th
 
 ![Grafana Dashboard](img/grafana-dashboard.png)
 
+The following sensors or metrics are supported:
+
+| Metric         | English Name                  | German Name                    | Unit  | Type   | Has Error Margin? |
+|----------------|-------------------------------|--------------------------------|-------|--------|-------------------|
+| health         | Health                        | Gesundheitsindex               | %     | double | no                |
+| no2            | Nitrogen Dioxide              | Stickstoffdioxid               | µg/m³ | double | yes               |
+| performance    | Performance                   | Leistungsindex                 | %     | double | no                |
+| o3             | Ozone                         | Ozon                           | µg/m³ | double | yes               |
+| oxygen         | Oxygen                        | Sauerstoff                     | %     | double | yes               |
+| so2            | Sulfur Dioxide                | Schwefeldioxid                 | µg/m³ | double | yes               |
+| co2            | Carbon Dioxide                | Kohlendioxid                   | ppm   | double | yes               |
+| sound          | Noise                         | Lärm                           | dB(A) | double | yes               |
+| sound_max      | Noise (Maximum)               | Lärm (Maximum)                 | dB(A) | double | yes               |
+| tvoc           | VOC                           | VOC                            | ppb   | double | yes               |
+| humidity       | Relative Humidity             | Relative Luftfeuchtigkeit      | %     | double | yes               |
+| co             | Carbon Monoxide               | Kohlenmonoxid                  | mg/m³ | double | yes               |
+| humidity_abs   | Absolute Humidity             | Absolute Luftfeuchtigkeit      | g/m³  | double | yes               |
+| pm1            | PM1 Particulate Matter        | PM1 Feinstaub                  | µg/m³ | double | yes               |
+| temperature    | Temperature                   | Temperatur                     | °C    | double | yes               |
+| fahrenheit     | Temperature                   | Temperatur                     | °F    | double | yes               |
+| pm2_5          | PM2.5 Particulate Matter      | PM2.5 Feinstaub                | µg/m³ | double | yes               |
+| pressure       | Air Pressure                  | Luftdruck                      | hPa   | double | yes               |
+| pressure_rel   | Relative Air Pressure         | Relativer Luftdruck            | hPa   | double | yes               |
+| pm10           | PM10 Particulate Matter       | PM10 Feinstaub                 | µg/m³ | double | yes               |
+| dewpt          | Dew Point                     | Taupunkt                       | °C    | double | yes               |
+| h2s            | Hydrogen Sulfide              | Schwefelwasserstoff            | µg/m³ | double | yes               |
+| n2o            | Nitrous Oxide                 | Lachgas                        | µg/m³ | double | yes               |
+| pm2_5_SPS30    | PM2.5 Particulate Matter (AUX) | PM2.5 Feinstaub (AUX)          | µg/m³ | double | yes               |
+| pm10_SPS30     | PM10 Particulate Matter (AUX) | PM10 Feinstaub (AUX)           | µg/m³ | double | yes               |
+| pm4_SPS30      | PM4 Particulate Matter (AUX)  | PM4 Feinstaub (AUX)            | µg/m³ | double | yes               |
+| pm1_SPS30      | PM1 Particulate Matter (AUX)  | PM1 Feinstaub (AUX)            | µg/m³ | double | yes               |
+| TypPS_SPS30    | Typical Particle Size (AUX)   | Typ. Partikelgröße (AUX)       | µm    | double | no                |
+| TypPS          | Typical Particulate Size      | Typische Partikelgröße         | µm    | double | no                |
+| ch4_MIPEX      | Methane                       | Methan                         | %     | double | yes               |
+| c3h8_MIPEX     | Propane                       | Propan                         | %     | double | yes               |
+| tvoc_ionsc     | VOC (ION Science)             | VOC (ION Science)              | ppb   | double | yes               |
+| radon          | Radon                         | Radon                          | Bq/m³ | double | yes               |
+| no2_insplorion | NO2 (Insplorion)              | NO2 (Insplorion)               | µg/m³ | double | yes               |
+| ethanol        | Alcohol                       | Alkohol                        | µg/m³ | double | yes               |
+| iaq_spec       | IAQ (SPEC)                    | IAQ (SPEC)                     | ppb   | double | yes               |
+| resp_irr_spec  | Respiratory Irritant Gases    | Atemwegsreizende Gase          | ppb   | double | yes               |
+| nh3_MR100      | Ammonia                       | Ammoniak                       | µg/m³ | double | yes               |
+| acid_M100      | Organic Acid                  | Organische Säure               | µg/m³ | double | yes               |
+| h2_M1000       | hydrogen                      | Wasserstoff                    | µg/m³ | double | yes               |
+| no_M250        | Nitrogen Monoxide             | Stickstoffmonoxid              | µg/m³ | double | yes               |
+| cl2_M20        | Chlorine                      | Chlor                          | µg/m³ | double | yes               |
+| br2            | Bromine                       | Brom                           | µg/m³ | double | yes               |
+| f2             | Fluorine                      | Fluor                          | µg/m³ | double | yes               |
+| hf             | Hydrogen fluoride             | Fluorwasserstoff               | µg/m³ | double | yes               |
+| hcn            | Hydrogen cyanide              | Cyanwasserstoff                | µg/m³ | double | yes               |
+| hcl            | Hydrogen chloride             | Chlorwasserstoff               | µg/m³ | double | yes               |
+| ch4s           | Methanethiol                  | Methanthiol                    | µg/m³ | double | yes               |
+| clo2           | Chlorine dioxide              | Chlordioxid                    | µg/m³ | double | yes               |
+| cs2            | Carbon disulfide              | Kohlenstoffdisulfid            | µg/m³ | double | yes               |
+| ph3            | Phosphane                     | Phosphan                       | µg/m³ | double | yes               |
+| sih4           | Silane                        | Silan                          | µg/m³ | double | yes               |
+| c2h4           | Ethene                        | Ethen                          | µg/m³ | double | yes               |
+| c2h4o          | Oxirane                       | Oxiran                         | µg/m³ | double | yes               |
+| ash3           | Arsane                        | Arsan                          | µg/m³ | double | yes               |
+| h2o2           | Hydrogen peroxide             | Wasserstoffperoxid             | µg/m³ | double | yes               |
+| refrigerant    | Refrigerant                   | Kältemittel                    | µg/m³ | double | yes               |
+| ch2o_M10       | Formaldehyde                  | Formaldehyd                    | µg/m³ | double | yes               |
+| dCO2dt         | Change of CO₂ concentration   | Änderung der CO₂ Konzentration |       | int    | no                |
+| dHdt           | Change of Humidity            | Änderung der Luftfeuchtigkeit  |       | int    | no                |
+| measuretime    | Duration of measurement       | Dauer der Messung              | ms    | int    | no                |
+| timestamp      | Timestamp                     | Timestamp                      |       | long   | no                |
+| uptime         | Uptime                        | Uptime                         | s     | long   | no                |
+| Status         | Status                        | Status                         |       | string | no                |
+| DeviceID       | Device ID                     | Geräte-ID                      |       | string | no                |
+
 ## Usage
 
 The command line application can be configured via parameters or environment variables.
@@ -194,12 +264,49 @@ docker load --input "airq-prometheus-exporter.tar"
 
 ## Grafana
 
-The Grafana dashboard is available as a JSON file in the folder `grafana-dashboard`. The installation is described below:
+The Grafana dashboard is available at https://grafana.com/grafana/dashboards/20561-air-q-prometheus-exporter/.
+To install it in your Grafana instance, follow the instructions below:
+
+1. Open your Grafana interface and hover over the *Dashboard* icon on the left.
+2. Click the *Import* menu.
+3. Enter the id `20561` into the text field *Import via grafana.com* and click *load*.
+4. On the following page choose your Prometheus instance and click *Import*.
+
+The Grafana dashboard is also available as a JSON file in the folder `grafana-dashboard`. The installation is described below:
 
 1. Download the JSON file from folder `grafana-dashboard`.
 2. Open your Grafana interface and hover over the *Dashboard* icon on the left.
 3. Click the *Import* menu.
 4. Upload the dashboard file by clicking on the button *Upload JSON file*
+
+The Grafana dashboard has visualizations for the air-Q pro that comes with 14 sensors.
+The following metrics are supported:
+
+| Metric         | English Name                  | German Name                    | Unit  | Type   | Has Error Margin? |
+|----------------|-------------------------------|--------------------------------|-------|--------|-------------------|
+| health         | Health                        | Gesundheitsindex               | %     | double | no                |
+| performance    | Performance                   | Leistungsindex                 | %     | double | no                |
+| no2            | Nitrogen Dioxide              | Stickstoffdioxid               | µg/m³ | double | yes               |
+| co2            | Carbon Dioxide                | Kohlendioxid                   | ppm   | double | yes               |
+| sound          | Noise                         | Lärm                           | dB(A) | double | yes               |
+| sound_max      | Noise (Maximum)               | Lärm (Maximum)                 | dB(A) | double | yes               |
+| tvoc           | VOC                           | VOC                            | ppb   | double | yes               |
+| humidity       | Relative Humidity             | Relative Luftfeuchtigkeit      | %     | double | yes               |
+| co             | Carbon Monoxide               | Kohlenmonoxid                  | mg/m³ | double | yes               |
+| humidity_abs   | Absolute Humidity             | Absolute Luftfeuchtigkeit      | g/m³  | double | yes               |
+| temperature    | Temperature                   | Temperatur                     | °C    | double | yes               |
+| pm1            | PM1 Particulate Matter        | PM1 Feinstaub                  | µg/m³ | double | yes               |
+| pm2_5          | PM2.5 Particulate Matter      | PM2.5 Feinstaub                | µg/m³ | double | yes               |
+| pm10           | PM10 Particulate Matter       | PM10 Feinstaub                 | µg/m³ | double | yes               |
+| pressure       | Air Pressure                  | Luftdruck                      | hPa   | double | yes               |
+| dewpt          | Dew Point                     | Taupunkt                       | °C    | double | yes               |
+| TypPS          | Typical Particulate Size      | Typische Partikelgröße         | µm    | double | no                |
+| dCO2dt         | Change of CO₂ concentration   | Änderung der CO₂ Konzentration |       | int    | no                |
+| dHdt           | Change of Humidity            | Änderung der Luftfeuchtigkeit  |       | int    | no                |
+| measuretime    | Duration of measurement       | Dauer der Messung              | ms    | int    | no                |
+| timestamp      | Timestamp                     | Timestamp                      |       | long   | no                |
+| uptime         | Uptime                        | Uptime                         | s     | long   | no                |
+| Status         | Status                        | Status                         |       | string | no                |
 
 ## License
 

@@ -33,6 +33,30 @@
       "hasErrorMargin": true
     },
     {
+      "id": "virus",
+      "nameDe": "Virenfrei-Index",
+      "nameEn": "Virus-free Index",
+      "unit": "%",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "ch2o_M10",
+      "nameDe": "Formaldehyd",
+      "nameEn": "Formaldehyde",
+      "unit": "µg/m³",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
+      "id": "mold",
+      "nameDe": "Schimmelfrei-Index",
+      "nameEn": "Mold-free Index",
+      "unit": "%",
+      "type": "double",
+      "hasErrorMargin": true
+    },
+    {
       "id": "oxygen",
       "nameDe": "Sauerstoff",
       "nameEn": "Oxygen",
@@ -452,14 +476,6 @@
       "id": "refrigerant",
       "nameDe": "Kältemittel",
       "nameEn": "Refrigerant",
-      "unit": "µg/m³",
-      "type": "double",
-      "hasErrorMargin": true
-    },
-    {
-      "id": "ch2o_M10",
-      "nameDe": "Formaldehyd",
-      "nameEn": "Formaldehyde",
       "unit": "µg/m³",
       "type": "double",
       "hasErrorMargin": true

@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.Map;
 
 @Data
-public class Config {
+public class StaticSensorConfig {
 
     @JsonDeserialize(using = StringHashMapValueDeserializer.class)
     Map<String, Sensor> sensors;

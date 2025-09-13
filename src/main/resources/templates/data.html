@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> partial/head.html}}
+    <title>air-Q Data | air-Q Prometheus Exporter</title>
+</head>
+<body>
+
+<main role="main">
+    {{> partial/menu.html}}
+
+    {{#airQData}}
+    <h2>air-Q Data</h2>
+
+    <ul>
+        <li><strong>Device ID</strong>: <code>{{deviceId}}</code></li>
+        <li><strong>Serial Number</strong>: <code>{{airQConfig.serialNumber}}</code></li>
+        <li><strong>Type</strong>: {{airQConfig.type}}</li>
+        <li><strong>Device Name</strong>: {{airQConfig.deviceName}}</li>
+        <li><strong>Room Type</strong>: {{airQConfig.roomType}}</li>
+        <li><strong>Hardware Version</strong>: <code>{{airQConfig.airQHardwareVersion}}</code></li>
+        <li><strong>Software Version</strong>: <code>{{airQConfig.airQSoftwareVersion}}</code></li>
+    </ul>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+            <tr>
+                <th>Sensor ID</th>
+                <th>Value</th>
+                <th>Error Margin</th>
+                <th>Status Message</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#sensorData.entrySet}}
+            <tr>
+                <td>{{value.id}}</td>
+                <td>{{value.value}}</td>
+                <td>{{value.errorMargin}}</td>
+                <td>{{value.statusMessage}}</td>
+            </tr>
+            {{/sensorData.entrySet}}
+            </tbody>
+        </table>
+    </div>
+    {{/airQData}}
+</main>
+
+</body>
+</html>

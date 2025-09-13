@@ -1,11 +1,12 @@
 package de.pascalwagler.airq.model.internal;
 
 import lombok.Builder;
+import lombok.Data;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@lombok.Data
+@Data
 @Builder
 public class AirQData {
 

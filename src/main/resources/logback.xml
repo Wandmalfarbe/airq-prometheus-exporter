@@ -4,7 +4,7 @@
     <import class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"/>
 
     <!-- custom coloring conversion -->
-    <conversionRule conversionWord="highlight_custom" converterClass="de.pascalwagler.airq.logging.HighlightingCompositeConverterCustom" />
+    <conversionRule conversionWord="highlight_custom" class="de.pascalwagler.airq.logging.HighlightingCompositeConverterCustom"/>
 
     <appender name="Console" class="ConsoleAppender">
         <encoder class="PatternLayoutEncoder">
@@ -12,7 +12,12 @@
         </encoder>
     </appender>
 
+    <appender name="CyclicBuffer" class="ch.qos.logback.core.read.CyclicBufferAppender">
+        <maxSize>100</maxSize>
+    </appender>
+
     <root level="info">
         <appender-ref ref="Console"/>
+        <appender-ref ref="CyclicBuffer"/>
     </root>
 </configuration>

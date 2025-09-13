@@ -484,6 +484,7 @@
       "id": "dCO2dt",
       "nameDe": "Änderung der CO₂ Konzentration",
       "nameEn": "Change of CO₂ concentration",
+      "unit": "ppb/s",
       "type": "int",
       "hasErrorMargin": false
     },
@@ -491,6 +492,7 @@
       "id": "dHdt",
       "nameDe": "Änderung der Luftfeuchtigkeit",
       "nameEn": "Change of Humidity",
+      "unit": "mg/m3/s",
       "type": "int",
       "hasErrorMargin": false
     },

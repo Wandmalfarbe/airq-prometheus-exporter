@@ -20,4 +20,12 @@ public class Sensor {
     public Boolean getHasErrorMargin() {
         return hasErrorMargin;
     }
+
+    public String getDescription() {
+        if (this.getUnit() == null) {
+            return this.getNameEn();
+        } else {
+            return this.getNameEn() + " (" + this.getUnit() + ")";
+        }
+    }
 }

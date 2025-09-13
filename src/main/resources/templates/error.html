@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> partial/head.html}}
+    <title>Internal Server Error | air-Q Prometheus Exporter</title>
+</head>
+<body>
+
+<main role="main">
+    {{> partial/menu.html}}
+
+    <h2>Internal Server Error</h2>
+
+    {{#errorInformation}}
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th scope="row">URL</th>
+                <td>{{url}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Time</th>
+                <td>{{time}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Exception</th>
+                <td><code>{{clazz}}</code></td>
+            </tr>
+            <tr>
+                <th scope="row">Message</th>
+                <td>{{message}}</td>
+            </tr>
+            {{#causeClazz}}
+            <tr>
+                <th scope="row">Cause Exception</th>
+                <td><code>{{causeClazz}}</code></td>
+            </tr>
+            <tr>
+                <th scope="row">Cause Message</th>
+                <td>{{causeMessage}}</td>
+            </tr>
+            {{/causeClazz}}
+        </table>
+    </div>
+
+    <details open>
+        <summary>Stack trace</summary>
+        <pre>{{stackTrace}}</pre>
+    </details>
+    {{/errorInformation}}
+
+    <p>More logs are available on the <a href="/web/logs">Logs</a> page.</p>
+</main>
+
+</body>
+</html>

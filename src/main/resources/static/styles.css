@@ -1,0 +1,107 @@
+:root {
+    --fg-error: #D32F2F;
+    --bg-error: #FFEBEE;
+    --fg-warn: #FF8F00;
+    --bg-warn: #FFF8E1;
+    --fg-info: #0288D1;
+    --bg-info: #E3F2FD;
+    --fg-debug: #757575;
+    --bg-debug: transparent;
+    --fg-trace: #90A4AE;
+    --bg-trace: transparent;
+
+    /* overridden */
+    --b-link: #1d69f9;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fg-error: #FFEBEE;
+        --bg-error: #991919;
+        --fg-warn: #FFF8E1;
+        --bg-warn: #863f00;
+        --fg-info: #E3F2FD;
+        --bg-info: #0A3373;
+        --fg-debug: #E0E0E0;
+        --bg-debug: #424242;
+        --fg-trace: #B0BEC5;
+        --bg-trace: #37474F;
+
+        /* overridden */
+        --b-link: #94b3fd;
+    }
+}
+
+.logo {
+    vertical-align: bottom;
+}
+
+fieldset {
+    padding: .75rem;
+    min-width: 100%;
+}
+
+fieldset > details {
+    margin-bottom: 0;
+}
+
+pre {
+    font-size: small;
+}
+
+details > pre {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+details[open] > summary {
+    margin-bottom: 1rem;
+}
+
+.icon {
+    vertical-align: -5px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.log-TRACE {
+    background: var(--bg-trace);
+}
+
+.log-TRACE .log-level {
+    color: var(--fg-trace);
+}
+
+.log-DEBUG {
+    background: var(--bg-debug);
+}
+
+.log-DEBUG .log-level {
+    color: var(--fg-debug);
+}
+
+.log-INFO {
+    background: var(--bg-info);
+}
+
+.log-INFO .log-level {
+    color: var(--fg-info);
+}
+
+.log-WARN, .log-Warning {
+    background: var(--bg-warn);
+}
+
+.log-WARN .log-level, .log-Warning .log-level {
+    color: var(--fg-warn);
+}
+
+.log-ERROR, .log-Error {
+    background: var(--bg-error);
+}
+
+.log-ERROR .log-level, .log-Error .log-level {
+    color: var(--fg-error);
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> partial/head.html}}
+    <title>Logs | air-Q Prometheus Exporter</title>
+</head>
+<body>
+
+<main role="main">
+    {{> partial/menu.html}}
+
+    <h2>Logs</h2>
+
+    <p>The last 100 Logs are displayed in descending order (newest first).</p>
+
+    {{#logs}}
+    <fieldset class="log-{{level}}">
+        <legend><span class="log-level"><strong>{{level}}</strong></span> {{timestampFormatted}}</legend>
+        {{message}}
+        <div style="text-align: right"><em><small>{{logger}}</small></em></div>
+        {{#stackTrace}}
+        <details open>
+            <summary>Stack trace</summary>
+            <pre>{{stackTrace}}</pre>
+        </details>
+        {{/stackTrace}}
+    </fieldset>
+    {{/logs}}
+
+    <h2>air-Q Logs</h2>
+
+    {{#airQLogs}}
+    <fieldset class="log-{{level}}">
+        <legend><span class="log-level"><strong>{{level}}</strong></span> {{timestampFormatted}}</legend>
+        {{message}}
+        <div style="text-align: right"><em><small>{{logger}}</small></em></div>
+        {{#stackTrace}}
+        <details open>
+            <summary>Stack trace</summary>
+            <pre>{{stackTrace}}</pre>
+        </details>
+        {{/stackTrace}}
+    </fieldset>
+    {{/airQLogs}}
+</main>
+
+</body>
+</html>

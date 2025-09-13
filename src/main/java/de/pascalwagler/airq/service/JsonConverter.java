@@ -1,10 +1,14 @@
-package de.pascalwagler.airq;
+package de.pascalwagler.airq.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.NumericNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.TextNode;
+import de.pascalwagler.airq.exception.AirQRuntimeException;
+import de.pascalwagler.airq.model.airq.AirQConfig;
 import de.pascalwagler.airq.model.internal.AirQData;
 import de.pascalwagler.airq.model.internal.SensorData;
 import lombok.extern.slf4j.Slf4j;
@@ -15,16 +19,40 @@ import java.util.Map;
 @Slf4j
 public class JsonConverter {
 
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+
     private JsonConverter() {
     }
 
-    public static AirQData convertDataFromJsonNode(JsonNode jsonNode) {
+    public static AirQData convertDataFromJson(String json) {
+        try {
+            return convertDataFromJsonNode(objectMapper.readTree(json));
+        } catch (JsonProcessingException e) {
+            throw new AirQRuntimeException("Could not read JSON data.", e);
+        }
+    }
+
+    public static AirQConfig convertConfigFromJson(String json) {
+        try {
+            return objectMapper.readValue(json, AirQConfig.class);
+        } catch (JsonProcessingException e) {
+            throw new AirQRuntimeException("Could not read JSON data.", e);
+        }
+    }
+
+    public static String[] convertLogFromJson(String json) {
+        try {
+            return objectMapper.readValue(json, String[].class);
+        } catch (JsonProcessingException e) {
+            throw new AirQRuntimeException("Could not read JSON data.", e);
+        }
+    }
+
+    private static AirQData convertDataFromJsonNode(JsonNode jsonNode) {
 
         AirQData airQData = AirQData.builder().build();
-        Iterator<Map.Entry<String, JsonNode>> elements = jsonNode.fields();
 
-        while (elements.hasNext()) {
-            Map.Entry<String, JsonNode> data = elements.next();
+        for (Map.Entry<String, JsonNode> data : jsonNode.properties()) {
             String key = data.getKey();
             JsonNode node = data.getValue();
             SensorData sensorData = SensorData.builder()
@@ -40,7 +68,7 @@ public class JsonConverter {
             } else if (node instanceof ObjectNode) {
                 parseObject((ObjectNode) node, airQData);
             } else {
-                log.warn("Unknown measurement '" + key + "' with value '" + node + "' in air-Q data response.");
+                log.warn("Unknown measurement '{}' with value '{}' in air-Q data response.", key, node);
             }
         }
 
@@ -78,7 +106,7 @@ public class JsonConverter {
                 // Otherwise, the value for 'Status' will be an Object.
                 break;
             default:
-                log.warn("Unknown measurement '" + key + "' with value '" + node + "' in air-Q data response.");
+                log.warn("Unknown text measurement '{}' with value '{}' in air-Q data response.", key, node);
         }
     }
 

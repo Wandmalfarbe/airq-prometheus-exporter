@@ -1,9 +1,12 @@
 name: Java CI with Maven
 
-on: [ push, pull_request ]
+on:
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build-non-macos:
+  build:
 
     strategy:
       matrix:

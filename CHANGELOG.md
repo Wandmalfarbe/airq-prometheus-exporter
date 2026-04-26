@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/airq-prometheus-exporter/releases/) you can see all released versions of the *air-Q Prometheus Exporter* and download the [latest version](https://github.com/Wandmalfarbe/airq-prometheus-exporter/releases/latest).
 
-## [2.1.0] - 2026-04-15
+## [2.1.0] - 2026-04-26
 
 - fix: The environment variable `AIRQ_PROM_EXP_PORT` had no effect
 - feat: Stack traces on the logs page are now collapsed per default
@@ -33,5 +33,6 @@ All notable changes to this project are documented in this file. On the [release
 
 - feat: Initial release of version 1.0.0 as a JAR file.
 
+[2.1.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v2.0.0...2.1.0
 [2.0.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/compare/v1.0.0...2.0.0
 [1.0.0]: https://github.com/Wandmalfarbe/pandoc-latex-template/releases/tag/v1.0.0

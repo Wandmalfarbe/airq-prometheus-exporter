@@ -11,18 +11,18 @@ import de.pascalwagler.airq.exception.AirQRuntimeException;
 import de.pascalwagler.airq.model.airq.AirQConfig;
 import de.pascalwagler.airq.model.internal.AirQData;
 import de.pascalwagler.airq.model.internal.SensorData;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Iterator;
 import java.util.Map;
 
 @Slf4j
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class JsonConverter {
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
-
-    private JsonConverter() {
-    }
 
     public static AirQData convertDataFromJson(String json) {
         try {

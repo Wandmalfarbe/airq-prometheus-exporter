@@ -26,18 +26,18 @@
         <table>
             <thead>
             <tr>
-                <th>Sensor ID</th>
-                <th>Value</th>
-                <th>Error Margin</th>
-                <th>Status Message</th>
+                <th scope="col">Sensor ID</th>
+                <th scope="col" class="align-right">Value</th>
+                <th scope="col" class="align-right">Error Margin</th>
+                <th scope="col">Status Message</th>
             </tr>
             </thead>
             <tbody>
             {{#sensorData.entrySet}}
             <tr>
-                <td>{{value.id}}</td>
-                <td>{{value.value}}</td>
-                <td>{{value.errorMargin}}</td>
+                <th scope="row">{{value.id}}</th>
+                <td class="align-right">{{value.value}}</td>
+                <td class="align-right">{{value.errorMargin}}</td>
                 <td>{{value.statusMessage}}</td>
             </tr>
             {{/sensorData.entrySet}}

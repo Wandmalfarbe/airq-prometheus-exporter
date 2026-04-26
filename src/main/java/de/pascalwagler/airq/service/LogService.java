@@ -6,24 +6,27 @@ import ch.qos.logback.classic.spi.IThrowableProxy;
 import ch.qos.logback.classic.spi.ThrowableProxyUtil;
 import ch.qos.logback.core.read.CyclicBufferAppender;
 import de.pascalwagler.airq.model.internal.LogEntry;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import org.slf4j.LoggerFactory;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class LogService {
 
-    private LogService() {
-    }
+    private static final DateTimeFormatter ISO8601_FORMATTER =
+            DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
 
     private static final Pattern ANSI_PATTERN = Pattern.compile("\u001B\\[[0-9;]*m");
     private static final Pattern LOG_PATTERN =
@@ -36,7 +39,6 @@ public class LogService {
     }
 
     public static List<LogEntry> getLogs() {
-        final DateFormat iso8601DateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
         Logger rootLogger = (Logger) LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME);
         CyclicBufferAppender<ILoggingEvent> appender = (CyclicBufferAppender<ILoggingEvent>) rootLogger.getAppender("CyclicBuffer");
 
@@ -45,7 +47,9 @@ public class LogService {
             ILoggingEvent loggingEvent = appender.get(i);
 
             long timestamp = loggingEvent.getTimeStamp();
-            String timestampFormatted = iso8601DateFormat.format(new Date(loggingEvent.getTimeStamp()));
+            String timestampFormatted = Instant.ofEpochMilli(loggingEvent.getTimeStamp())
+                    .atZone(ZoneId.systemDefault())
+                    .format(ISO8601_FORMATTER);
             String level = loggingEvent.getLevel().levelStr;
             String message = loggingEvent.getFormattedMessage();
             IThrowableProxy throwableProxy = loggingEvent.getThrowableProxy();

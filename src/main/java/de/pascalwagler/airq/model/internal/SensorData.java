@@ -30,7 +30,7 @@ public class SensorData {
     private Double errorMargin;
 
     /**
-     * If the sensor is in the warmup period, this message fill be filled with more information
+     * If the sensor is in the warmup period, this message will be filled with more information
      * regarding the sensor status.
      */
     @Nullable

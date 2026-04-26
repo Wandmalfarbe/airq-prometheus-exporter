@@ -63,7 +63,7 @@ public class AirQ {
     private final HttpClient httpClient = HttpClient.newHttpClient();
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    private static final String READ_ERROR = "Error while reading data from air-Q.";
+    private static final String READ_ERROR_MSG_TEMPLATE = "Error while reading data from air-Q (URL %s).";
 
     public AirQ(String host, String password) {
         this.host = host;
@@ -97,7 +97,7 @@ public class AirQ {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         } catch (Exception e) {
-            throw new AirQCommunicationException(READ_ERROR, e);
+            throw new AirQCommunicationException(String.format(READ_ERROR_MSG_TEMPLATE, url), e);
         }
         return null;
     }

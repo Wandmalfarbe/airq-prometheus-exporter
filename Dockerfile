@@ -9,7 +9,7 @@ RUN adduser --no-create-home -u 1000 -D "$APPLICATION_USER" \
 
 USER 1000
 
-COPY --chown=1000:1000 ./target/airq-prometheus-exporter-2.0.0.jar /app/airq-prometheus-exporter.jar
+COPY --chown=1000:1000 ./target/airq-prometheus-exporter-2.1.0.jar /app/airq-prometheus-exporter.jar
 WORKDIR /app
 
 EXPOSE 8080

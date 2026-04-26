@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented in this file. On the [releases page](https://github.com/Wandmalfarbe/airq-prometheus-exporter/releases/) you can see all released versions of the *air-Q Prometheus Exporter* and download the [latest version](https://github.com/Wandmalfarbe/airq-prometheus-exporter/releases/latest).
 
+## [2.1.0] - 2026-04-15
+
+- fix: The environment variable `AIRQ_PROM_EXP_PORT` had no effect
+- feat: Stack traces on the logs page are now collapsed per default
+- feat: The logo/icon now has blue text instead of orange
+- fix: Make all pages conform to WCAG AA (contrast)
+- feat: Add script to build docker images and output them as `tar`
+- chore: Use Java 25 for docker images
+- chore: Update dependencies
+
 ## [2.0.0] - 2025-09-13
 
 - feat: major internal refactoring

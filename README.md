@@ -229,13 +229,13 @@ mvn clean package -DskipTests
 
 ## Build the Docker Image
 
-Build a Docker image for the Raspberry Pi with the following command:
+Build a Docker image for the Raspberry Pi (ARM) with the following command:
 
 ```shell
 docker build -t airq-prometheus-exporter . --platform linux/arm64/v8
 ```
 
-Build a Docker image for macOS with the following command:
+Build a Docker image for macOS (Intel) with the following command:
 
 ```shell
 docker build -t airq-prometheus-exporter . --platform linux/amd64
@@ -260,7 +260,7 @@ docker build -t airq-prometheus-exporter . --platform linux/arm64/v8
 docker save --output "airq-prometheus-exporter.tar" "airq-prometheus-exporter"
 ```
 
-Copy the image to the Raspberry Pi with *scp*.
+Copy the image to the Raspberry Pi with `scp`.
 
 ```shell
 scp "airq-prometheus-exporter.tar" "username@raspberrypi:~/airq-prometheus-exporter"
@@ -271,7 +271,7 @@ Import image from *tar* file
 ```shell
 docker compose down airq-prometheus-exporter
 docker rmi airq-prometheus-exporter
-docker load --input "airq-prometheus-exporter.tar"
+docker image load --input "airq-prometheus-exporter.tar"
 docker images
 docker compose up -d airq-prometheus-exporter
 ```

@@ -15,7 +15,7 @@ public class ProgramArguments {
     @Option(names = {"--help"}, usageHelp = true, hidden = true)
     boolean helpRequested = false;
 
-    @Option(names = {"-v", "--version" }, versionHelp = true, hidden = true)
+    @Option(names = {"-v", "--version"}, versionHelp = true, hidden = true)
     boolean versionRequested = false;
 
     @SuppressWarnings({"CanBeFinal", "FieldMayBeFinal"})
@@ -37,7 +37,7 @@ public class ProgramArguments {
     @SuppressWarnings({"CanBeFinal", "FieldMayBeFinal"})
     @Option(
             names = {"-s", "--port"},
-            defaultValue = "${env:AIRQ_PROM_EXP_SERVER:-8080}",
+            defaultValue = "${env:AIRQ_PROM_EXP_PORT:-8080}",
             description = "Port of the webserver. The server will serve Prometheus data at `http://localhost:<port>/metrics`")
     private int serverPort = 8080;
 

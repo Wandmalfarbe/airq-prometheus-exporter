@@ -1,3 +1,8 @@
+airq-prometheus-exporter-amd64.tar
+airq-prometheus-exporter-arm64.tar
+airq-prometheus-exporter.iml
+scripts/push-raspberry.sh
+
 # Created by https://www.toptal.com/developers/gitignore/api/macos,windows,intellij,eclipse,maven,java
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,intellij,eclipse,maven,java
 

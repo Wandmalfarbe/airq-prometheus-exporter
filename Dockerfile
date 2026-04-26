@@ -1,4 +1,5 @@
-FROM amazoncorretto:24-alpine
+FROM amazoncorretto:25-alpine
+RUN apk update && apk upgrade --no-cache
 
 # Add app user
 ARG APPLICATION_USER=appuser

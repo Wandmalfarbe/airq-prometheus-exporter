@@ -5,13 +5,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.reflect.ReflectionObjectHandler;
 import de.pascalwagler.airq.controller.AirQController;
+import de.pascalwagler.airq.controller.ErrorController;
 import de.pascalwagler.airq.controller.MetricsController;
 import de.pascalwagler.airq.controller.WebInterfaceController;
-import de.pascalwagler.airq.model.internal.StaticSensorConfig;
 import de.pascalwagler.airq.model.internal.AirQDataHolder;
-import de.pascalwagler.airq.model.internal.ErrorInformation;
+import de.pascalwagler.airq.model.internal.StaticSensorConfig;
 import io.javalin.Javalin;
-import io.javalin.http.HttpStatus;
 import io.javalin.json.JavalinJackson;
 import io.javalin.micrometer.MicrometerPlugin;
 import io.javalin.rendering.template.JavalinMustache;
@@ -27,17 +26,11 @@ import lombok.extern.slf4j.Slf4j;
 import picocli.CommandLine;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.Callable;
 
 import static io.javalin.apibuilder.ApiBuilder.get;
-import static io.javalin.rendering.template.TemplateUtil.model;
 
 @Slf4j
 public class AirQPrometheusExporter implements Callable<Void> {
@@ -119,10 +112,11 @@ public class AirQPrometheusExporter implements Callable<Void> {
         // Manual dependency injection because a DI framework would be overkill
         MetricsController metricsController = new MetricsController(prometheusMeterRegistry, airQDataHolder, airQ, staticSensorConfig);
         AirQController airQController = new AirQController(airQ);
+        ErrorController errorController = new ErrorController();
         WebInterfaceController webInterfaceController = new WebInterfaceController(airQ, staticSensorConfig, programArguments);
 
-        Javalin app = Javalin.create(config -> {
-            config.showJavalinBanner = false;
+        Javalin.create(config -> {
+            config.startup.showJavalinBanner = false;
             config.fileRenderer(new JavalinMustache(defaultMustacheFactory));
             config.staticFiles.add("/static");
             if (programArguments.isExportOtherMetrics()) {
@@ -134,7 +128,7 @@ public class AirQPrometheusExporter implements Callable<Void> {
                     .setInclude(JsonInclude.Value.construct(JsonInclude.Include.NON_NULL, JsonInclude.Include.NON_NULL))
             ));
 
-            config.router.apiBuilder(() -> {
+            config.routes.apiBuilder(() -> {
                 get("/metrics", metricsController::getMetrics);
 
                 get("/airq/data", airQController::getData);
@@ -153,34 +147,8 @@ public class AirQPrometheusExporter implements Callable<Void> {
                 get("/web/config", webInterfaceController::serveConfig);
                 get("/web/logs", webInterfaceController::serveLogs);
             });
+
+            config.routes.exception(Exception.class, errorController::onException);
         }).start(programArguments.getServerPort());
-
-        app.exception(Exception.class, (exception, ctx) -> {
-            // Prevent infinite recursion
-            try {
-                log.error("Uncaught exception", exception);
-
-                StringWriter sw = new StringWriter();
-                exception.printStackTrace(new PrintWriter(sw));
-                String stackTraceString = sw.toString();
-                final DateFormat iso8601DateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-
-                ErrorInformation errorInformation = ErrorInformation.builder()
-                        .url(ctx.url())
-                        .time(iso8601DateFormat.format(new Date()))
-                        .clazz(exception.getClass().getCanonicalName())
-                        .message(exception.getMessage())
-                        .causeClazz(exception.getCause() != null ? exception.getCause().getClass().getCanonicalName() : null)
-                        .causeMessage(exception.getCause() != null ? exception.getCause().getMessage() : null)
-                        .stackTrace(stackTraceString)
-                        .build();
-
-                ctx.render("/error.html", model("errorInformation", errorInformation))
-                        .status(HttpStatus.INTERNAL_SERVER_ERROR);
-            } catch (Exception ex) {
-                log.error("An Exception occurred while showing the error page.", ex);
-                ctx.html("An Exception occurred while showing the error page. Please see the log file for more information.");
-            }
-        });
     }
 }

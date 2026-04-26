@@ -34,17 +34,17 @@
         <table>
             <thead>
             <tr>
-                <th>Sensor ID</th>
-                <th>German Name</th>
-                <th>English Name</th>
-                <th>Unit</th>
-                <th>Type</th>
+                <th scope="col">Sensor ID</th>
+                <th scope="col">German Name</th>
+                <th scope="col">English Name</th>
+                <th scope="col">Unit</th>
+                <th scope="col">Type</th>
             </tr>
             </thead>
             <tbody>
             {{#sensors.entrySet}}
             <tr>
-                <td>{{value.id}}</td>
+                <th scope="row">{{value.id}}</th>
                 <td>{{value.nameDe}}</td>
                 <td>{{value.nameEn}}</td>
                 <td>{{value.unit}}</td>
